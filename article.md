@@ -2,7 +2,7 @@
 
 This guide walks you through what passkeys are, why they matter, and how to implement a full passkey (WebAuthn) auth flow in Nuxt 4 using Nuxt Auth Utils, Drizzle ORM (SQLite/libSQL), and Nuxt UI.
 
-TLDR: [Checkout the repo here](https://github.com/danielkellyio/nuxt-auth-passkeys-example) and try it out for yourself!
+TLDR: [Checkout the repo here](https://github.com/danielkellyio/nuxt-auth-passkeys-example) to see the fully functional codebase and/or [visit the demo site to try it out for yourself](https://nuxt-passkey-example.netlify.app/)!
 
 ## What are Passkeys and Why Use Them?
 
