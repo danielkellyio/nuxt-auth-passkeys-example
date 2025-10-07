@@ -1,7 +1,6 @@
 import { migrate } from "drizzle-orm/libsql/migrator";
-import { createClient } from "@libsql/client";
-import { drizzle } from "drizzle-orm/libsql";
 import { mkdirSync } from "fs";
+import { useDB } from "../database";
 
 /**
  * Run database migrations
@@ -11,11 +10,7 @@ export async function runMigrations() {
   try {
     // Ensure the .data directory exists
     mkdirSync(".data", { recursive: true });
-
-    const client = createClient({
-      url: process.env.DATABASE_URL || "file:.data/db.sqlite",
-    });
-    const db = drizzle(client);
+    const db = useDB();
 
     // Run migrations
     await migrate(db, {

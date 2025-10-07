@@ -1,19 +1,12 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "03fee96c-93a9-45fb-9c76-86afb105ca8a",
+  "id": "ec765627-8fc4-41f1-ad58-ae5fe9f3a46a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "authenticators": {
-      "name": "authenticators",
+    "credentials": {
+      "name": "credentials",
       "columns": {
-        "id": {
-          "name": "id",
-          "type": "integer",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": true
-        },
         "user_id": {
           "name": "user_id",
           "type": "integer",
@@ -21,15 +14,15 @@
           "notNull": true,
           "autoincrement": false
         },
-        "credential_id": {
-          "name": "credential_id",
+        "id": {
+          "name": "id",
           "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
-        "credential_public_key": {
-          "name": "credential_public_key",
+        "public_key": {
+          "name": "public_key",
           "type": "text",
           "primaryKey": false,
           "notNull": true,
@@ -42,8 +35,8 @@
           "notNull": true,
           "autoincrement": false
         },
-        "credential_backed_up": {
-          "name": "credential_backed_up",
+        "backed_up": {
+          "name": "backed_up",
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
@@ -55,28 +48,21 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
         }
       },
       "indexes": {
-        "authenticators_credential_id_unique": {
-          "name": "authenticators_credential_id_unique",
+        "credentials_id_unique": {
+          "name": "credentials_id_unique",
           "columns": [
-            "credential_id"
+            "id"
           ],
           "isUnique": true
         }
       },
       "foreignKeys": {
-        "authenticators_user_id_users_id_fk": {
-          "name": "authenticators_user_id_users_id_fk",
-          "tableFrom": "authenticators",
+        "credentials_user_id_users_id_fk": {
+          "name": "credentials_user_id_users_id_fk",
+          "tableFrom": "credentials",
           "tableTo": "users",
           "columnsFrom": [
             "user_id"
@@ -88,7 +74,15 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {},
+      "compositePrimaryKeys": {
+        "credentials_user_id_id_pk": {
+          "columns": [
+            "user_id",
+            "id"
+          ],
+          "name": "credentials_user_id_id_pk"
+        }
+      },
       "uniqueConstraints": {},
       "checkConstraints": {}
     },
@@ -100,7 +94,7 @@
           "type": "integer",
           "primaryKey": true,
           "notNull": true,
-          "autoincrement": true
+          "autoincrement": false
         },
         "email": {
           "name": "email",
@@ -108,31 +102,9 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
         }
       },
-      "indexes": {
-        "users_email_unique": {
-          "name": "users_email_unique",
-          "columns": [
-            "email"
-          ],
-          "isUnique": true
-        }
-      },
+      "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
