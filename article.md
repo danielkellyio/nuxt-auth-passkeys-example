@@ -268,15 +268,27 @@ The sign-in component is much like the registration component, but instead of ca
 
 ![sign in form](./public/landing-signin-card.jpg)
 
-It does not require a form, just a button to trigger the passkey selector. If the user has only one passkey stored for the domain, it will show the biometric/screen lock prompt immediately.
+It does not require a form, just a button to trigger the passkey selector.
+
+#### UI with a Single Passkey on Current Device
+
+If the user has only one passkey stored for the domain, it will show the biometric/screen lock prompt immediately.
 
 ![touch id prompt](./public/touchid-prompt.jpg)
+
+#### UI with Multiple Passkeys on Current Device
 
 If the user has multiple passkeys stored for the domain, it will show a selector that lets them choose which passkey to use \*.
 
 ![passkey selector](./public/select-passkey.jpeg)
 
 \*Optionally, you can pass a `userName` to the `authenticate()` function to specify the user to authenticate. This skips the selector and shows the biometric/screen lock prompt immediately even if the user has multiple passkeys for the domain.
+
+#### UI with No Passkeys on Current Device
+
+If no passkeys are stored on the current device, it will prompt the user with a QR code to scan and add a passkey from another device.
+
+![qr code prompt](./public/passkey-on-another-device.jpeg)
 
 Here is the code for that sign-in component.
 
