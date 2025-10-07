@@ -588,7 +588,7 @@ export default defineWebAuthnRegisterEventHandler({
 });
 ```
 
-### Authenticate endpoint
+### Authenticate endpoint (`/api/webauthn/authenticate`)
 
 The registration endpoint handles new users. Now let's login existing users with the authenticate endpoint. Here's the breakdown of what this endpoint does:
 
