@@ -7,7 +7,7 @@ import { mkdirSync } from "fs";
  * Run database migrations
  * This is called automatically when the server starts
  */
-export function runMigrations() {
+export async function runMigrations() {
   try {
     // Ensure the .data directory exists
     mkdirSync(".data", { recursive: true });
@@ -18,7 +18,9 @@ export function runMigrations() {
     const db = drizzle(client);
 
     // Run migrations
-    migrate(db, { migrationsFolder: "./server/database/migrations" });
+    await migrate(db, {
+      migrationsFolder: "./server/database/migrations",
+    });
 
     console.log("✅ Database migrations completed");
   } catch (error) {

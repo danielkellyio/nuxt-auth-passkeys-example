@@ -4,7 +4,6 @@
 export default defineNitroPlugin(async () => {
   if (process.env.NODE_ENV === "development") {
     const { runMigrations } = await import("../utils/migrate");
-    runMigrations();
+    await runMigrations();
   }
 });
-
