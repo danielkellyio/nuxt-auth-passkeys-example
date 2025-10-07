@@ -95,8 +95,6 @@ npm run db:migrate
 npm run db:studio
 ```
 
-```
-
 ## Learn More
 
 - [WebAuthn Guide](https://webauthn.guide/)
@@ -112,4 +110,3 @@ MIT
 ---
 
 Built with ❤️ using Nuxt 4, Drizzle ORM, and Nuxt UI
-```
