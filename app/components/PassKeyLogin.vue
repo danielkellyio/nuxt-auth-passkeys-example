@@ -1,11 +1,4 @@
 <script setup lang="ts">
-/**
- * Passkey Authentication Component
- *
- * Handles both registration (signup) and authentication (signin) for passkeys.
- * Uses WebAuthn API through nuxt-auth-utils.
- */
-
 const { authenticate } = useWebAuthn();
 const { fetch: fetchUserSession } = useUserSession();
 const loading = ref(false);

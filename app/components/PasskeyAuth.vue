@@ -1,10 +1,8 @@
 <script setup lang="ts">
 const mode = ref<"signin" | "signup">("signin");
-const error = ref("");
 
 function toggleMode() {
   mode.value = mode.value === "signin" ? "signup" : "signin";
-  error.value = "";
 }
 </script>
 
